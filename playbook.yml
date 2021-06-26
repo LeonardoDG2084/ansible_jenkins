@@ -20,6 +20,7 @@
       insertafter: "server_name _;"
       block: |
                 access_log      /var/log/nginx/default.log;
+      when: not ansible_check_mode
 
   - name: Create access log to page
     file:
