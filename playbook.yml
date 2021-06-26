@@ -1,4 +1,4 @@
-- hosts: remoto
+- hosts: all
   gather_facts: True
 
   tasks:
@@ -20,6 +20,7 @@
       insertafter: "server_name _;"
       block: |
                 access_log      /var/log/nginx/default.log;
+    when: not ansible_check_mode
 
   - name: Create access log to page
     file:
@@ -34,8 +35,7 @@
        dest: /var/www/html/index.html
        content: |
           <h1> Esta pagina e do servidor: {{ ansible_nodename }} </h1>
-          <p> Esta variavel vem do inventario: {{ var_do_inventory }} </p>
-          <p> Conteudo da variavel "Datacenter" do inventario: {{ datacenter }}
+
 
   - name: Enable and start nginx service
     systemd:

@@ -3,7 +3,6 @@ plugin: gcp_compute
 projects:
   -  impacta-iaac
 auth_kind: serviceaccount
-service_account_file: impacta-iaac.json
 keyed_groups:
   - key: labels
     prefix: label
