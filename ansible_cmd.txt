@@ -1,0 +1,1 @@
+ansible --become --become-user root  --private-key gcp-compute-key ci -a "cat /var/lib/jenkins/secrets/initialAdminPassword"

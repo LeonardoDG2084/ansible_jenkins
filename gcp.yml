@@ -1,0 +1,14 @@
+---
+plugin: gcp_compute
+projects:
+  -  impacta-iaac
+auth_kind: serviceaccount
+service_account_file: impacta-iaac.json
+keyed_groups:
+  - key: labels
+    prefix: label
+  - key: zone
+    prefix: zone
+groups:
+  ci: "'impacta-iaac-prod' in name"
+  server: "'cobaia-prod' in name"
